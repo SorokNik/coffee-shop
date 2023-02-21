@@ -1,0 +1,42 @@
+.main-header {
+    min-height: 640px;
+    padding-top: 30px;
+    padding-bottom: 200px;
+    background: url(../../../public/img/bg/main-bg.jpg) center center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    button {
+        display: block;
+        width: 120px;
+        margin: 0 auto;
+        margin-top: 18px;
+        border: 1px solid #fff;
+        border-radius: 3px;
+        background-color: rgba(28,28,28,0);
+        color: #fff;
+        cursor: pointer;
+    }
+}  
+
+.title{
+    font-weight: 700;
+    font-size: 40px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    color: #fff;
+}
+.subtitle {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.header-title{
+    margin-bottom: 20px;
+    margin-top: 111px;
+}
+.header-subtitle{
+    margin-top: 35px;
+}

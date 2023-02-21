@@ -1,8 +1,8 @@
 import './app-menu-white.scss'
 import './app-menu-dark.scss'
 
-const AppMenu = ({color}) => {
-
+const AppMenu = (props) => {
+    const {color} = props;
     let classNames = "app-menu";
     switch(color) {
         case 'black':
@@ -15,9 +15,9 @@ const AppMenu = ({color}) => {
     return (
         <nav>
             <ul className={classNames}>
-                <li><a href="#">Coffee house</a></li>
-                <li><a href="#">Our coffee</a></li>
-                <li><a href="#">For your pleasure</a></li>
+                <li onClick={() => props.onChangePage('mainPage')}>Coffee house</li>
+                <li onClick={() => props.onChangePage('ourCoffeePage')}>Our coffee</li>
+                <li>For your pleasure</li>
             </ul>
         </nav>
     )
