@@ -1,13 +1,14 @@
 import {Component} from 'react';
 
-import AppAboutUs from '../app-about-us/appAboutUs';
+import AppAboutUs from '../app-main-page/app-about-us/appAboutUs';
 import AppFooter from '../app-footer/appFooter';
-import AppMainHeader from '../app-main-header/appMainHeader';
-import AppOurBest from '../app-our-best/appOurBest';
-import AppOurCoffeeHeader from '../app-our-coffee-header/appOurCoffeeHeader';
+import AppMainHeader from '../app-main-page/app-main-header/appMainHeader';
+import AppOurBest from '../app-main-page/app-our-best/appOurBest';
+import AppOurCoffeeHeader from '../app-our-coffee-page/app-our-coffee-header/appOurCoffeeHeader';
 
 
 import './App.scss';
+import AppOurCoffeeBeans from '../app-our-coffee-page/app-our-coffee-beans/appOurCoffeeBeans';
 
 class App extends Component {
   constructor(props){
@@ -25,9 +26,15 @@ class App extends Component {
   openPage = page => {
 	switch (page) {
 		case 'ourCoffeePage':
-			return <AppOurCoffeeHeader onChangePage={this.onChangePage}/>;
+			return <>
+						<AppOurCoffeeHeader onChangePage={this.onChangePage}/>
+						<AppOurCoffeeBeans/>
+					</>;
 		case 'mainPage':
-			return  <AppMainHeader onChangePage={this.onChangePage}/>
+			return  <>
+						<AppMainHeader onChangePage={this.onChangePage}/>
+						<AppAboutUs/>
+					</>;
 		default:
 			return <AppMainHeader onChangePage={this.onChangePage}/>;
 	}
@@ -45,9 +52,9 @@ class App extends Component {
 		<div className="container"></div>
 		{newPage}
         {/* <AppMainHeader/> */}
-        <AppAboutUs/>
+        {/* <AppAboutUs/> */}
         <AppOurBest ourBestCards={ourBestCards}/>
-		<AppFooter/>
+		<AppFooter onChangePage={this.onChangePage}/>
       </div>
     );
   }

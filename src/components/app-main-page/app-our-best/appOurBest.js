@@ -1,4 +1,4 @@
-import AppCard from '../app-card/appCard';
+import AppCard from '../../app-card/appCard';
 
 import './app-our-best.scss';
 

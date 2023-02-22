@@ -1,10 +1,9 @@
-import AppDelimeter from '../app-delimiter/appDelimiter';
-import AppMenu from '../app-menu/appMenu';
+import AppDelimeter from '../../app-delimiter/appDelimiter';
+import AppMenu from '../../app-menu/appMenu';
 
 import './app-main-header.scss' ;
 
-const AppMainHeader = (props) => {
-    const {onChangePage} = props;     
+const AppMainHeader = ({onChangePage}) => {  
     return (
         <header className='main-header'>
          <div className="container">

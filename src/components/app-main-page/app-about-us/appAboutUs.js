@@ -1,4 +1,4 @@
-import AppDelimeter from "../app-delimiter/appDelimiter";
+import AppDelimeter from "../../app-delimiter/appDelimiter";
 
 import "./app-about-us.scss"
 

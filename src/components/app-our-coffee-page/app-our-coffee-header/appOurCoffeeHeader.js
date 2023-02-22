@@ -1,4 +1,4 @@
-import AppMenu from '../app-menu/appMenu';
+import AppMenu from '../../app-menu/appMenu';
 
 import './app-our-coffee-header.scss';
 
