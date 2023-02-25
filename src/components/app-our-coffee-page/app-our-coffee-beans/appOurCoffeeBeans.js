@@ -1,8 +1,10 @@
+import AppCard from '../../app-card/appCard';
 import AppDelimeter from '../../app-delimiter/appDelimiter';
+import AppSearchFilterPanel from '../../app-search-filter-panel/appSearchFilterPanel';
 
 import './app-our-coffee-beans.scss';
 
-const AppOurCoffeeBeans = () => {
+const AppOurCoffeeBeans = ({ourBeansCards}) => {
 return (
     <section className="about-our-beans">
         <div className="about-our-beans-box">
@@ -22,19 +24,9 @@ return (
             </div>
         </div>
         <div className="about-our-beans-line"></div>
-        <div className="about-our-beans-filter-and-search">
-            <div className="about-our-beans-search-panel">
-                <div className="about-our-beans-search-panel-descr">Looking for</div>
-                <input type="text" placeholder='start typing here...' />
-            </div>
-            <div className="about-our-beans-filter">
-                <div className="about-our-beans-filter-descr">Or filter</div>
-                <ul className="about-our-beans-filter-countries">
-                    <li><button>Brazil</button></li>
-                    <li><button>Kenya</button></li>
-                    <li><button>Columbia</button></li>
-                </ul>
-            </div>
+        <AppSearchFilterPanel/>
+        <div className="about-our-beans-cards">
+            <AppCard cardsData={ourBeansCards}/>
         </div>
     </section>
 )

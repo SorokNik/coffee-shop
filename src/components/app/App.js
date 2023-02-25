@@ -19,24 +19,39 @@ class App extends Component {
 			{imgSrc: 'img/cards/our-best/presto1kg.jpg', descr: "Presto Coffee Beans 1 kg", price: "15.99$", id:2},
 			{imgSrc: 'img/cards/our-best/aromistico1kg.jpg', descr: "AROMISTICO Coffee 1 kg", price: "6.99$", id:3}
 		],
+		ourBeansCards: [
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:4},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Kenya", price: "6.99$", id:5},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Columbia", price: "6.99$", id:6},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:7},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:8},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:9}
+		],
 		page: ''
   	}
   }
   
   openPage = page => {
+	const {ourBestCards, ourBeansCards} = this.state;
 	switch (page) {
 		case 'ourCoffeePage':
 			return <>
 						<AppOurCoffeeHeader onChangePage={this.onChangePage}/>
-						<AppOurCoffeeBeans/>
+						<AppOurCoffeeBeans ourBeansCards={ourBeansCards}/>
 					</>;
 		case 'mainPage':
 			return  <>
+						
 						<AppMainHeader onChangePage={this.onChangePage}/>
 						<AppAboutUs/>
+						<AppOurBest ourBestCards={ourBestCards}/>
 					</>;
 		default:
-			return <AppMainHeader onChangePage={this.onChangePage}/>;
+			return 	<>
+						<AppMainHeader onChangePage={this.onChangePage}/>
+						<AppAboutUs/>
+						<AppOurBest ourBestCards={ourBestCards}/>
+					</>
 	}
   }
 
@@ -45,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-	const {ourBestCards, page} = this.state;
+	const {page} = this.state;
 	const newPage = this.openPage(page);
     return (
       <div>
@@ -53,7 +68,7 @@ class App extends Component {
 		{newPage}
         {/* <AppMainHeader/> */}
         {/* <AppAboutUs/> */}
-        <AppOurBest ourBestCards={ourBestCards}/>
+        {/* <AppOurBest ourBestCards={ourBestCards}/> */}
 		<AppFooter onChangePage={this.onChangePage}/>
       </div>
     );
