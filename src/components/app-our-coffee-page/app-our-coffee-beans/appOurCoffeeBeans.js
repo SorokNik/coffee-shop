@@ -1,10 +1,48 @@
+import { Component } from 'react';
 import AppCard from '../../app-card/appCard';
 import AppDelimeter from '../../app-delimiter/appDelimiter';
-import AppSearchFilterPanel from '../../app-search-filter-panel/appSearchFilterPanel';
 
 import './app-our-coffee-beans.scss';
 
-const AppOurCoffeeBeans = ({ourBeansCards}) => {
+class AppOurCoffeeBeans extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            term: ''
+        }
+    }
+
+    onUpdateSearch = (e) => {
+        const term = e.target.value;
+        this.setState({term});
+        this.props.onUpdateSearch(term)
+    }
+
+    render() {
+        const {ourBeansCards, onFilterSelect} = this.props;
+
+        const filterButtonsData = [
+            {name: '', label: 'All'},
+            {name: 'Brazil', label: 'Brazil'},
+            {name: 'Kenya', label: 'Kenya'},
+            {name: 'Columbia', label: 'Columbia'}
+        ]
+
+        const buttons = filterButtonsData.map(({name, label}) => {
+            const active = this.props.filter === name;
+            const clazz = active ? '-active' : '';
+            return (
+                <li>
+                    <button 
+                        className={`button${clazz}`}
+                        type='button'
+                        key={name}
+                        onClick={() => onFilterSelect(name)}>
+                            {label}
+                    </button>
+                </li>  
+            )
+        })
 return (
     <section className="about-our-beans">
         <div className="about-our-beans-box">
@@ -24,12 +62,28 @@ return (
             </div>
         </div>
         <div className="about-our-beans-line"></div>
-        <AppSearchFilterPanel/>
+        <div className="app-filter-and-search">
+                <div className="app-search-panel">
+                    <div className="app-search-panel-descr">Looking for</div>
+                    <input type="text" 
+                            placeholder='start typing here...' 
+                            value={this.state.term}
+                            onChange={this.onUpdateSearch}/>
+                </div>
+                <div className="app-filter">
+                    <div className="app-filter-descr">Or filter</div>
+                    <ul className="app-filter-countries">
+                        {buttons}
+                    </ul>
+                </div>
+            </div>
         <div className="about-our-beans-cards">
-            <AppCard cardsData={ourBeansCards}/>
+            <AppCard cardsData={ourBeansCards}
+                    onUpdateSearch={this.onUpdateSearch}/>
         </div>
     </section>
 )
+    }
 }
 
 export default AppOurCoffeeBeans;

@@ -21,23 +21,29 @@ class App extends Component {
 		],
 		ourBeansCards: [
 			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:4},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Kenya", price: "6.99$", id:5},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Columbia", price: "6.99$", id:6},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:7},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:8},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:9}
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Presto Coffee 1 kg", country:"Kenya", price: "6.99$", id:5},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Solimo Coffee 1 kg", country:"Columbia", price: "6.99$", id:6},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Presto Coffee 1 kg", country:"Brazil", price: "6.99$", id:7},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Solimo Coffee 1 kg", country:"Brazil", price: "6.99$", id:8},
+			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Presto Coffee 1 kg", country:"Brazil", price: "6.99$", id:9}
 		],
-		page: ''
+		page: '',
+		term: '',
+		filter: ''
   	}
   }
   
   openPage = page => {
-	const {ourBestCards, ourBeansCards} = this.state;
+	const {ourBestCards, ourBeansCards, term, filter} = this.state;
+	const VisibleData = this.filterPost(this.searchEmp(ourBeansCards, term), filter)
 	switch (page) {
 		case 'ourCoffeePage':
 			return <>
 						<AppOurCoffeeHeader onChangePage={this.onChangePage}/>
-						<AppOurCoffeeBeans ourBeansCards={ourBeansCards}/>
+						<AppOurCoffeeBeans ourBeansCards={VisibleData}
+											onUpdateSearch={this.onUpdateSearch}
+											onFilterSelect={this.onFilterSelect}
+											filter={filter}/>
 					</>;
 		case 'mainPage':
 			return  <>
@@ -55,9 +61,40 @@ class App extends Component {
 	}
   }
 
-  onChangePage = (page) => {
+	onChangePage = (page) => {
 	this.setState({page});
-  }
+	}
+
+	searchEmp = (items, term) => {
+	if (term.length === 0) {
+		return items;
+	}
+
+	return items.filter(item => {
+		return item.descr.indexOf(term) > -1
+	})
+	}
+
+	onUpdateSearch = (term) => {
+		this.setState({term});
+	}
+
+	filterPost = (items, filter) =>{
+        switch (filter) {
+            case 'Brazil':
+                return items.filter(item => item.country === 'Brazil');
+            case 'Kenya':
+                return items.filter(item => item.country === 'Kenya');
+			case 'Columbia':
+				return items.filter(item => item.country === 'Columbia');
+            default:
+                return items;
+        }
+   }
+
+   onFilterSelect = (filter) => {
+        this.setState({filter});
+   }
 
   render() {
 	const {page} = this.state;
