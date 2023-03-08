@@ -1,5 +1,5 @@
 .about-our-beans{
-    min-height: 1250px;
+    // min-height: 1250px;
     padding-top: 70px;
     padding-bottom: 30px;
     .about-our-beans-box{
@@ -34,15 +34,6 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        // :nth-child(4){
-        //     margin-top: 60px;
-        // }
-        // :nth-child(5){
-        //     margin-top: 60px;
-        // }
-        // :nth-child(6){
-        //     margin-top: 60px;
-        // }
     }
 
     .app-filter-and-search{
@@ -109,6 +100,40 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.about-our-beans-info{
+    margin: 0 auto;
+    width: 865px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    .about-our-beans-more-info{
+        width: 420px;
+        .about-our-beans-more-info-delimeter{
+            margin-top: 20px;
+        }
+        .about-our-beans-more-info-paragraph{
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .about-our-beans-more-info-text{
+            font-size: 14px;
+        }
+        .about-our-beans-more-info-text-bold{
+            font-size: 24px;
+        }
+        .about-our-beans-more-info-country{
+            margin-top: 25px;
+        }
+        .about-our-beans-more-info-descr{
+            margin-top: 16px;
+        }
+        .about-our-beans-more-info-price{
+            margin-top: 16px;
         }
     }
 }

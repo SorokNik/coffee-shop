@@ -15,17 +15,71 @@ class App extends Component {
 	super(props);
 	this.state= {
 		ourBestCards : [
-			{imgSrc: 'img/cards/our-best/solimo2kg.jpg', descr: "Solimo Coffee Beans 2 kg", price: "10.73$", id:1},
-			{imgSrc: 'img/cards/our-best/presto1kg.jpg', descr: "Presto Coffee Beans 1 kg", price: "15.99$", id:2},
-			{imgSrc: 'img/cards/our-best/aromistico1kg.jpg', descr: "AROMISTICO Coffee 1 kg", price: "6.99$", id:3}
+			{imgSrc: 'img/cards/our-best/solimo2kg.jpg', descr: "Solimo Coffee Beans 2 kg", price: "10.73$", id:1, },
+			{imgSrc: 'img/cards/our-best/presto1kg.jpg', descr: "Presto Coffee Beans 1 kg", price: "15.99$", id:2, },
+			{imgSrc: 'img/cards/our-best/aromistico1kg.jpg', descr: "AROMISTICO Coffee 1 kg", price: "6.99$", id:3, }
 		],
 		ourBeansCards: [
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "AROMISTICO Coffee 1 kg", country:"Brazil", price: "6.99$", id:4},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Presto Coffee 1 kg", country:"Kenya", price: "6.99$", id:5},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Solimo Coffee 1 kg", country:"Columbia", price: "6.99$", id:6},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Presto Coffee 1 kg", country:"Brazil", price: "6.99$", id:7},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Solimo Coffee 1 kg", country:"Brazil", price: "6.99$", id:8},
-			{imgSrc: 'img/cards/our-coffee/mask.jpg', descr: "Presto Coffee 1 kg", country:"Brazil", price: "6.99$", id:9}
+			{
+				imgSrc: 'img/cards/our-coffee/mask.jpg', 
+				descr: "AROMISTICO Coffee 1 kg", 
+				country:"Brazil", 
+				price: "6.99$", 
+				imgSrcMore:'img/cards/our-coffee/more-info/aromistico.jpg', 
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+				id:4
+			},
+
+			{
+				imgSrc: 'img/cards/our-coffee/mask.jpg', 
+				descr: "Presto Coffee 1 kg", 
+				country:"Kenya", 
+				price: "6.99$", 
+				imgSrcMore:'img/cards/our-coffee/more-info/aromistico.jpg', 
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+				id:5
+			},
+
+			{
+				imgSrc: 'img/cards/our-coffee/mask.jpg', 
+				descr: "Solimo Coffee 1 kg", 
+				country:"Columbia", 
+				price: "6.99$", 
+				imgSrcMore:'img/cards/our-coffee/more-info/aromistico.jpg', 
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+				id:6
+			},
+
+			{
+				imgSrc: 'img/cards/our-coffee/mask.jpg', 
+				descr: "Presto Coffee 1 kg", 
+				country:"Brazil", 
+				price: "6.99$", 
+				imgSrcMore:'img/cards/our-coffee/more-info/aromistico.jpg', 
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+				id:7
+			},
+
+			{
+				imgSrc: 'img/cards/our-coffee/mask.jpg', 
+				descr: "Solimo Coffee 1 kg", 
+				country:"Brazil", 
+				price: "6.99$", 
+				imgSrcMore:'img/cards/our-coffee/more-info/aromistico.jpg', 
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+				id:8
+			},
+
+			{
+				imgSrc: 'img/cards/our-coffee/mask.jpg', 
+				descr: "Presto Coffee 1 kg", 
+				country:"Brazil", 
+				price: "6.99$", 
+				imgSrcMore:'img/cards/our-coffee/more-info/aromistico.jpg', 
+				text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+				id:9
+			}
+
 		],
 		page: '',
 		term: '',
@@ -103,9 +157,6 @@ class App extends Component {
       <div>
 		<div className="container"></div>
 		{newPage}
-        {/* <AppMainHeader/> */}
-        {/* <AppAboutUs/> */}
-        {/* <AppOurBest ourBestCards={ourBestCards}/> */}
 		<AppFooter onChangePage={this.onChangePage}/>
       </div>
     );
