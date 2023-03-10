@@ -7,10 +7,6 @@
     border-radius: 8px;
     cursor: pointer;
     border-style: none;
-    transition: 0.5s ease;
-        &:hover{
-            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
-        }
     .app-card-img{
         min-height: 140px;
         display: flex;
@@ -41,4 +37,11 @@
 
 .add-margin{
     margin-top: 60px;
+}
+
+.app-card-shadow{
+	transition: 0.5s ease;
+	&:hover{
+		box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
+	}
 }

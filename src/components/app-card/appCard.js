@@ -5,7 +5,9 @@ const AppCard = ({cardsData, onModItem}) => {
     
     return cardsData.map(({imgSrc, descr, country, price, id}) => {
         if (country) {
-            classNames += " add-margin";
+            if (classNames === "app-card-wrapper"){
+                classNames += " add-margin app-card-shadow";
+            }
             
             return (
                 <button className={classNames} key={id} onClick={() => onModItem(id)}>
@@ -14,14 +16,14 @@ const AppCard = ({cardsData, onModItem}) => {
                     <div className="descr app-card-country">{country}</div>
                     <div className="app-card-price">{price}</div>
                 </button>
-            )   
+            )  
         }
         return (
-            <button className={classNames} key={id} style={{cursor: "default"}}>
+            <div className={classNames} key={id} style={{cursor: "default"}}>
                 <div className="app-card-img"><img src={imgSrc} alt="coffee card" /></div>
                 <div className="descr app-card-descr">{descr}</div>
                 <div className="app-card-price">{price}</div>
-            </button>
+            </div>
         ) 
     })
     

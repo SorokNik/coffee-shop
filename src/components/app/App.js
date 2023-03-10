@@ -5,10 +5,12 @@ import AppFooter from '../app-footer/appFooter';
 import AppMainHeader from '../app-main-page/app-main-header/appMainHeader';
 import AppOurBest from '../app-main-page/app-our-best/appOurBest';
 import AppOurCoffeeHeader from '../app-our-coffee-page/app-our-coffee-header/appOurCoffeeHeader';
+import AppYourPleasureHeader from '../app-for-your-pleasure-page/app-your-pleasure-header/appYourPleasureHeader';
+import AppOurCoffeeBeans from '../app-our-coffee-page/app-our-coffee-beans/appOurCoffeeBeans';
+import AppYourPleasure from '../app-for-your-pleasure-page/app-your-pleasure/appYourPleasure';
 
 
 import './App.scss';
-import AppOurCoffeeBeans from '../app-our-coffee-page/app-our-coffee-beans/appOurCoffeeBeans';
 
 class App extends Component {
   constructor(props){
@@ -98,6 +100,11 @@ class App extends Component {
 											onUpdateSearch={this.onUpdateSearch}
 											onFilterSelect={this.onFilterSelect}
 											filter={filter}/>
+					</>;
+		case 'forYourPleasure':
+			return <>
+						<AppYourPleasureHeader onChangePage={this.onChangePage}/>
+						<AppYourPleasure ourBeansCards={VisibleData}/>
 					</>;
 		case 'mainPage':
 			return  <>

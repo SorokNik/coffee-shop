@@ -17,7 +17,7 @@ const AppMenu = (props) => {
             <ul className={classNames}>
                 <li onClick={() => props.onChangePage('mainPage')}>Coffee house</li>
                 <li onClick={() => props.onChangePage('ourCoffeePage')}>Our coffee</li>
-                <li>For your pleasure</li>
+                <li onClick={() => props.onChangePage('forYourPleasure')}>For your pleasure</li>
             </ul>
         </nav>
     )
